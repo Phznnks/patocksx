@@ -4,7 +4,6 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="styles.css">
-    <script src="script.js"></script>
     <title>Barbearia PatocksX</title>
 </head>
 <body>
@@ -15,18 +14,18 @@
         </nav>
     </header>
     <main>
-        <section>
-            <form id="loginForm" action="#">                 
-                <label for="cpf">CPF:</label>
-                <input type="text" id="cpf" name="cpf" maxlength="14" pattern="\d{3}\.\d{3}\.\d{3}-\d{2}" placeholder="000.000.000-00" required autofocus><br>
-            
-                <label for="senha">Senha:</label>
-                <input type="password" id="senha" name="senha" minlength="6" required><br>
-            
-                <input type="submit" id="entrar" name="entrar" value="Entrar">
-
+        <section class="info">
+            <h2>Entrar</h2>    
+            <form action="index.js" method="post">
+                <label for="cpf">CPF:
+                    <input type="text" name="cpf" id="cpf">    
+                </label>
+                <label for="senha">Senha:
+                    <input type="password" name="senha" id="senha">
+                </label>
                 <a href="rsenha.html" target="_blank" rel="noopener noreferrer">Esqueci a senha</a>
             </form>
+
             <p>Se não tiver conta, clique em <a href="cadastrar.html">Criar conta</a></p>
             <p>Para saber mais sobre o site, clique em <a href="sobre.html">Saiba mais</a></p>
         </section>
@@ -41,3 +40,14 @@
     </footer>
 </body>
 </html>
+
+<form id="loginForm" action="#">
+  <label for="cpf">CPF:</label>
+  <input type="text" id="cpf" name="cpf" maxlength="14" pattern="\d{3}\.\d{3}\.\d{3}-\d{2}" placeholder="000.000.000-00" required autofocus><br>
+
+  <label for="senha">Senha:</label>
+  <input type="password" id="senha" name="senha" minlength="6" required><br>
+
+  <input type="submit" value="Entrar">
+</form>
+
