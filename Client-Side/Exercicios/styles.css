@@ -8,15 +8,27 @@ body {
     background-color: rgba(228, 224, 224, 0.358);
 }
 
+.navbar img {
+    width: 100px;
+    height: auto;
+    vertical-align: middle;
+}
+
+
 .navbar {
     background-color: rgb(209, 209, 209);
 }
 
-.navbar > h1, ul {
+.navbar >  ul {
     margin-right: 10%;
     margin-left: 10%;
 }
 
 .navbar > ul > li {
-   display: inline;
+   display: inline-block;
+   padding: 2%;
+}
+
+.logo {
+    margin-right: 20%;
 }
