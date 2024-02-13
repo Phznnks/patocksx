@@ -35,16 +35,14 @@ body {
 }
 
 section {
-    margin: 5% 5%;
+    margin: 5% 30%;
     background: gainsboro;
-    
-
+    text-align: center;    
 }
 
 div {
+    padding: 10% 0;
     background-color: chartreuse;
-    padding: 20% 2%;
-    text-align: center;
 }
 
 footer {
