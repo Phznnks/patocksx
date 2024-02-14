@@ -1,13 +1,11 @@
 * {
     font-family: Arial, Helvetica, sans-serif;
-    max-width: 100%;
-    max-height: 100%;
-    margin: 0%;
-    padding: 0%;
-} 
+    margin: 0;
+    padding: 0;
+}
 
 body {
-    background-color: rgba(228, 224, 224, 0.358);
+    background-color: rgba(239, 239, 239, 0.506);
 }
 
 .navbar img {
@@ -34,16 +32,90 @@ body {
    padding: 1%;
 }
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 section {
-    margin: 5% 30%;
-    background: gainsboro;
-    text-align: center;    
+    margin: 50px 20%;
+    background-color: #ff1313;
+    padding: 20px;
+    border-radius: 5px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
 }
 
-div {
-    padding: 10% 0;
-    background-color: chartreuse;
+.formulario {
+    margin: 0 auto;
+    max-width: 600px;
 }
+
+.formulario h1 {
+    text-align: center;
+    font-size: 24px;
+    margin-bottom: 20px;
+}
+
+.formulario label {
+    font-size: 18px;
+    margin-bottom: 10px;
+    display: block;
+}
+
+.formulario input[type="text"],
+.formulario textarea {
+    width: 100%;
+    padding: 10px;
+    font-size: 16px;
+    margin-bottom: 20px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+.formulario input[type="submit"] {
+    background-color: rgba(200, 199, 199, 0.453);
+    color: #000000;
+    border: none;
+    padding: 10px 20px;
+    font-size: 20px;
+    cursor: pointer;
+    margin-left: 83.7%;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 footer {
     background-color: rgba(200, 199, 199, 0.453);
