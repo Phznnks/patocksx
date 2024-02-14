@@ -32,90 +32,41 @@ body {
    padding: 1%;
 }
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 section {
     margin: 50px 20%;
-    background-color: #ff1313;
+    background-color: rgb(0, 0, 0);
+    color: white;
     padding: 20px;
-    border-radius: 5px;
-    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
-}
 
-.formulario {
-    margin: 0 auto;
-    max-width: 600px;
-}
+    & .formulario {
+        margin: 0 auto;
+        max-width: 600px;
 
-.formulario h1 {
-    text-align: center;
-    font-size: 24px;
-    margin-bottom: 20px;
-}
+        & h1 {
+            text-align: center;
+            font-size: 24px;
+            margin-bottom: 20px;
+        }
 
-.formulario label {
-    font-size: 18px;
-    margin-bottom: 10px;
-    display: block;
-}
+        & label {
+            font-size: 20px;
+            margin-bottom: 10px;
+        }
 
-.formulario input[type="text"],
-.formulario textarea {
-    width: 100%;
-    padding: 10px;
-    font-size: 16px;
-    margin-bottom: 20px;
-    border: 1px solid #ccc;
-    border-radius: 5px;
-}
-
-.formulario input[type="submit"] {
-    background-color: rgba(200, 199, 199, 0.453);
-    color: #000000;
-    border: none;
-    padding: 10px 20px;
-    font-size: 20px;
-    cursor: pointer;
-    margin-left: 83.7%;
-}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+        & input[type="text"], textarea {
+            width: 100%;
+            padding: 12px;
+            margin-bottom: 20px;
+        }
+        & input[type="submit"] {  
+            background-color: rgb(170, 170, 170);
+            color: #000000;
+            border: none;
+            padding: 10px 20px;
+            font-size: 20px;
+        }
+    }
+ }
 
 footer {
     background-color: rgba(200, 199, 199, 0.453);
