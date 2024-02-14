@@ -7,62 +7,63 @@
 } 
 
 body {
-    background-color: rgba(228, 224, 224, 0.358);
-}
-
-.navbar img {
-    width: 12%;
-    height: auto;
-    vertical-align: middle;
-    margin-left: 10%;
-    margin-top: 0px;
-    position: absolute;
+    background-color: rgba(223, 223, 223, 0.642);
+    
+    & footer {
+        background-color: rgb(196, 196, 196);
+        text-align: center;
+        padding: 2% 0;
+    }
+    
 }
 
 .navbar {
     padding: 1%;
-    background-color: rgb(209, 209, 209);
-}
+    background-color: rgb(196, 196, 196);
 
-.navbar >  ul {
-    margin-right: 10%;
-    margin-left: 40%;
-}
+    & img {
+        width: 12%;
+        height: auto;
+        vertical-align: middle;
+        margin-left: 10%;
+        margin-top: 0px;
+        position: absolute;
+    }
 
-.navbar > ul > li {
-   display: inline-block;
-   padding: 1%;
+    & ul {
+        margin-right: 10%;
+        margin-left: 40%;
+
+        & li {
+            display: inline-block;
+            padding: 1%;
+        }
+    }
 }
 
 main {
     text-align: center;
-    background-color: #0000ff;
-}
+    background-color:  rgba(223, 223, 223, 0.642);;
 
-div {
-    margin: 2.5% 2.5%;
-    text-align: center;
-    display: inline-block;
-    padding: 1%;
-    background-color: rgb(0, 255, 21);
-}
+    & div {
+        margin: 2.5% 2.5%;
+        text-align: center;
+        display: inline-block;
+        padding: 35px;
+        background-color: rgb(255, 255, 255);
 
-div > p {
-    margin: 5% 0;
-    font-size: 120%;
-    padding-bottom: 50%;
-}
+        & p {
+            margin: 5% 0;
+            font-size: 20px;
+            padding-bottom: 50%;
+        }
 
-div > input {
-    padding: 10% 0;
-    font-size: 120%;
-    padding-left: 20%;
-    padding-right: 20%;
-    margin-bottom: 5%;
-}
-
-footer {
-    background-color: rgba(200, 199, 199, 0.453);
-    text-align: center;
-    padding: 2% 0;
+        & input[type="submit"] {
+            background-color: rgba(194, 194, 194, 0.61);
+            border: none;
+            padding: 5% 10%;
+            font-size: 25px;
+            margin-top: 30%;
+        }
+    }
 }
