@@ -15,10 +15,10 @@ body {
     
 }
 
-
 .navbar {
     padding: 1%;
     background-color: rgb(196, 196, 196);
+    box-shadow: 2px 2px 2px rgba(141, 141, 141, 0.705);
 
     & img {
         width: 200px;
@@ -36,6 +36,19 @@ body {
 
             & a {
                 text-decoration: none;
+                color: black;
+            }
+
+            & .cn {
+                padding: 2.5px;
+                border-radius: 10px;
+                background-color: rgba(86, 86, 86, 0.421);
+            }
+
+            & a:hover {
+                padding: 2.5px;
+                border-radius: 10px;
+                background-color: rgba(86, 86, 86, 0.421);
             }
 
             & input[type="search"] {
@@ -58,16 +71,16 @@ body {
     }
 }
 
-
 section {
     margin: 50px 20%;
     background-color: rgb(255, 255, 255);
     padding: 20px;
+    box-shadow: 2px 3px 2px rgba(141, 141, 141, 0.705);
 
     & .formulario {
         margin: 0 auto;
         max-width: 600px;
-
+        
         & h1 {
             text-align: center;
             font-size: 24px;
@@ -78,6 +91,7 @@ section {
             font-size: 20px;
             margin-bottom: 10px;
             display: inline-block;
+           
         }
 
         & input[type="text"], textarea {
@@ -86,12 +100,19 @@ section {
             font-size: 16px;
             margin-bottom: 20px;
         }
+
         & input[type="submit"] {  
             background-color: rgba(194, 194, 194, 0.61);
             border: none;
-            padding: 18px 30px;
-            font-size: 25px;
-            margin-left: 82%;
+            padding: 12px 50px;
+            font-size: 20px;
+            margin-left: 78%;
+            border-radius: 30px;
+            box-shadow: 1px 1px 1px rgba(0, 0, 0, 0.491);
+        }
+        
+        & .botao:hover {
+            background-color: rgba(86, 86, 86, 0.421);
         }
     }
 }
