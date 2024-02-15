@@ -15,29 +15,49 @@ body {
     
 }
 
+
 .navbar {
     padding: 1%;
     background-color: rgb(196, 196, 196);
 
     & img {
-        width: 12%;
-        height: auto;
-        vertical-align: middle;
-        margin-left: 10%;
-        margin-top: 0px;
+        width: 200px;
+        margin-left: 7%;
         position: absolute;
     }
 
     & ul {
-        margin-right: 10%;
-        margin-left: 40%;
+        margin-left: 47%;
 
         & li {
             display: inline-block;
             padding: 1%;
+            font-size: 15px;
+
+            & a {
+                text-decoration: none;
+            }
+
+            & input[type="search"] {
+                padding: 8px 30px 8px 10px;
+                border: none;
+                border-radius: 15px;
+            }
+
+            .search-container {
+                position: relative;
+            }
+
+            .search-icon {
+                position: absolute;
+                top: 30%;
+                right: 10px;
+                color: blue; 
+            }
         }
     }
 }
+
 
 section {
     margin: 50px 20%;

@@ -15,4 +15,7 @@ def forca():
         categoria = int(input('Digitar o numero da categoria:'))
     else:
         print('vocÊ não inicializou o jogo! :(')
+
+print('a funçao acabou')
+
 forca()
