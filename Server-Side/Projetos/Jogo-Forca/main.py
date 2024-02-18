@@ -1,5 +1,3 @@
-import time 
-
 print('Jogo da Forca PATOCKSX!')
 
 começar = input('Digite "jogar" para começar: ')
@@ -17,6 +15,7 @@ def forca():
             Animais = ['gato', 'cachorro', 'rato']
             Carro = ['bmw', 'ferrari', 'ford']
             categoria = int(input('Digitar o numero da categoria:'))
+            
             if categoria == 1:
                 print('1')
 
