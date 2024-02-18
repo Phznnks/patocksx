@@ -1,12 +1,23 @@
-# Praticando Loop
+# Exercicio aula 6 
 
-Quantidade_Aluno = int(input("Digite a quantidade de aluno(a): "))
-Quantidade_inicial = 0 
 
-while Quantidade_Aluno > Quantidade_inicial:
+def ex01():
 
-    Nome_Aluno = input('digite o nome do aluno(a): ')
-    Nota_Aluno = float(input('Digite a nota do aluno(a): '))
-    Quantidade_inicial += 1
-    
-print('Loop terminado')
+    nome = str(input('Informe o seu nome completo: '))
+
+    print(nome.upper())
+
+    print(nome.lower())
+
+    print(len(nome.replace(' ', '')))
+
+    print(len(nome[0:5]))
+
+
+#ex01()
+
+num = int(input('Digite um numero de 0 a 9999: '))
+
+
+
+#print(f'Unidade: {separar[1]} \nDezena: {teste} \nCentena: {teste} \nMilhar: {teste} ')
