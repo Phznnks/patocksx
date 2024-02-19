@@ -40,6 +40,8 @@ def ex04():
 #ex04()
 
 def ex05():
-    frase = str(input('Digite uma frase: ')).lower()
-    print(frase)
+    frase = str(input('Digite uma frase: ')).lower().strip()
+    print(frase.count('a'))
+    print(frase.find('a')+1) # o +1 server para o indice comeca pelo 1 e nao pelo 0
+    print(frase.rfind('a')+1) # o R server para o find começa a procurar da direita para esquerda
 ex05()
