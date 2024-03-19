@@ -1,10 +1,12 @@
 from flask import Flask, request, render_template
 import requests
+import os
 
-app = Flask(__name__)
+app = Flask(__name__, template_folder=os.path.abspath('templates'))
 
 @app.route('/', methods=['GET', 'POST'])
 def index():
+    render_template('index.html')
     if request.method == 'POST':
         nome = request.form['nome']
         nome_formatado = nome.replace(" ", "+")
@@ -23,3 +25,6 @@ def index():
         else:
             return "Erro ao fazer a requisição."
     return render_template('index.html')
+
+if __name__ == '__main__':
+    app.run(debug=True)
