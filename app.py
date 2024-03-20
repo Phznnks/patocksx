@@ -2,10 +2,11 @@ from flask import Flask, request, render_template
 import requests
 import os
 
-app = Flask(__name__, template_folder=os.path.abspath('templates'))
+app = Flask(__name__, template_folder=os.path.abspath('templates'), static_folder=os.path.abspath('static'))
 
 @app.route('/', methods=['GET', 'POST'])
 def index():
+    render_template('index.html')
     if request.method == 'POST':
         nome = request.form['nome']
         nome_formatado = nome.replace(" ", "+")
@@ -14,11 +15,12 @@ def index():
         if response.status_code == 200:
             opcao = request.form.get('opcao')
             if opcao == '1':
-                return render_template('result.html', data=response.json())
-            elif opcao == '2':
                 data = response.json()
-                formatted_data = [{'NOME': item.get('nome'), 'CPF': item.get('cpf'), 'IDADE': item.get('idade')} for item in data]
+                formatted_data = [{'nome': item.get('nome'), 'cpf': item.get('cpf'), 'idade': item.get('idade')} for item in data]
                 return render_template('result.html', data=formatted_data)
+            elif opcao == '2':
+                print('ainda em desenvolvimento')
+                return render_template('resultcpf.html')
             else:
                 return "Escolha 1 ou 2!"
         else:
@@ -27,3 +29,4 @@ def index():
 
 if __name__ == '__main__':
     app.run(debug=True)
+    
