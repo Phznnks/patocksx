@@ -2,7 +2,7 @@ from flask import Flask, request, render_template
 import requests
 import os
 
-app = Flask(__name__, template_folder=os.path.abspath('templates'), static_folder=os.path.abspath('static'))
+app = Flask(__name__, template_folder=os.path.abspath('HatRed/Painel-Ducksx/client-side'), static_folder=os.path.abspath('HatRed/Painel-Ducksx/client-side'))
 
 @app.route('/', methods=['GET', 'POST'])
 def index():
