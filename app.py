@@ -6,7 +6,6 @@ app = Flask(__name__, template_folder=os.path.abspath('templates'))
 
 @app.route('/', methods=['GET', 'POST'])
 def index():
-    render_template('index.html')
     if request.method == 'POST':
         nome = request.form['nome']
         nome_formatado = nome.replace(" ", "+")
@@ -18,7 +17,7 @@ def index():
                 return render_template('result.html', data=response.json())
             elif opcao == '2':
                 data = response.json()
-                formatted_data = [{'nome': item.get('nome'), 'cpf': item.get('cpf'), 'idade': item.get('idade')} for item in data]
+                formatted_data = [{'NOME': item.get('nome'), 'CPF': item.get('cpf'), 'IDADE': item.get('idade')} for item in data]
                 return render_template('result.html', data=formatted_data)
             else:
                 return "Escolha 1 ou 2!"
