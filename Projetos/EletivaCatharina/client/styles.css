@@ -1,0 +1,82 @@
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+.navbar {
+    background-color: #f8f9fa;
+    padding: 15px 0;
+}
+
+.container {
+    width: 80%;
+    margin: 0 auto;
+}
+
+.logo {
+    font-size: 24px;
+    font-weight: bold;
+    color: #333;
+    text-decoration: none;
+}
+
+.card {
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    margin: 20px 0;
+    padding: 15px;
+    display: inline-block;
+    width: 45%;
+    /* Ajuste conforme necessário */
+}
+
+.card img {
+    max-width: 100%;
+    height: auto;
+}
+
+.card h2 {
+    margin-top: 10px;
+    font-size: 20px;
+}
+
+.card p {
+    margin-top: 10px;
+}
+
+.card button {
+    margin-top: 15px;
+    padding: 5px 10px;
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    border-radius: 3px;
+    cursor: pointer;
+}
+
+footer {
+    background-color: #f8f9fa;
+    padding: 15px 0;
+    margin-top: auto;
+    /* O footer ficará no final da página */
+    width: 100%;
+}
+
+@media screen and (max-width: 768px) {
+
+    /* Estilos para telas com largura máxima de 768px */
+    .card {
+        width: 100%;
+    }
+}
+
+@media screen and (min-width: 768px) and (max-width: 1024px) {
+    /* Estilos para telas com largura mínima de 768px e máxima de 1024px */
+}
+
+@media screen and (min-width: 1025px) {
+    /* Estilos para telas com largura mínima de 1025px */
+}
