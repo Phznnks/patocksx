@@ -1,6 +1,8 @@
 from flask import Flask, render_template, request, redirect
+from openpyxl import Workbook, load_workbook
 import pandas as pd
 import os
+
 
 app = Flask(__name__, template_folder=os.path.abspath('Projetos/Flask/client'))
 
@@ -11,8 +13,8 @@ inscricoes = []
 def index():
     return render_template('index.html')
 
-@app.route('/inscricao', methods=['POST'])
 
+@app.route('/inscricao', methods=['POST'])
 def inscrever():
     nome = request.form['nome']
     email = request.form['email']
@@ -22,18 +24,28 @@ def inscrever():
 
     # Salvar os dados em um arquivo Excel
     df = pd.DataFrame(inscricoes)
-    df.to_excel('inscricoes.xlsx', index=False)
+    df.to_excel('Projetos/Flask/server/inscricoes.xlsx', index=False)
 
     return redirect('/')
 
 @app.route('/dados')
 def listar_dados():
+    df = pd.read_excel('Projetos/Flask/server/inscricoes.xlsx')
+    inscricoes = df.to_dict('records')
     return render_template('dados.html', inscricoes=inscricoes)
 
 @app.route('/dados/<int:index>')
 def detalhar_dado(index):
     inscricao = inscricoes[index]
     return render_template('detalhe.html', inscricao=inscricao)
+
+@app.route('/login')
+def login():
+    df = pd.read_excel('Projetos/Flask/server/inscricoes.xlsx')
+
+    # Obtém o valor da terceira célula da coluna A
+    valor_A3 = df.iloc[2, 0]
+    return render_template('login.html', valor_A3=valor_A3)
 
 if __name__ == '__main__':
     app.run(debug=True)
