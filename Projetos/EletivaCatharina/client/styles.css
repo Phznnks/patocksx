@@ -1,6 +1,8 @@
 :root {
     --corbranco: white;
-    --fontsize20px: 25px;
+    --fontsize25px: 25px;
+    --boxsaw: 3px 3px 3px rgba(0, 0, 0, 0.747);
+    --backgbotao: rgba(4, 0, 255, 0.731)
 }
 
 * {
@@ -30,35 +32,43 @@ body,html {
 }
 
 .main {
-    width: 95%;
+    width: 98%;
     margin: 20px auto;
     background-color: antiquewhite;
     display: flex;
     flex-wrap: wrap;
-    justify-content: space-between;
 }
 
 .card {
     background-color: blue;
     display: inline-block;
-    width: 45%;
-    margin-bottom: 20px;
-    color: white;
-    padding: 10px;
+    height: 620px;
+    margin: 15px auto;
+    width: 30%;
+    color: var(--corbranco);
+    border-radius: 25px;
+    box-shadow: var(--boxsaw);
 }
 
 .card h2 {}
 
 .card p {}
 
-.card button {
-    margin-top: 15px;
-    padding: 5px 10px;
-    background-color: #007bff;
-    color: #fff;
+.card > button {
+    padding: 20px 30px;
+    background-color: var(--backgbotao);
+    color: var(--corbranco);
     border: none;
-    border-radius: 3px;
     cursor: pointer;
+    font-size: var(--fontsize25px);
+    display: block;
+    margin: auto;
+    box-shadow: var(--boxsaw);
+    border-radius: 30px;
+}
+
+button:hover {
+    background: rgba(71, 96, 255, 0.68)
 }
 
 footer {
@@ -73,12 +83,28 @@ footer {
 
 @media (min-width: 1070px) {
 
-    .navbar>img {
-        width: 350px;
-    }
-
     body {
         background-color: aquamarine;
+    }
+
+    .navbar>img {
+        width: 450px;
+    }
+
+    .card {
+        width: 50%;
+        margin: 15px auto;
+        height: 950px;
+    }
+
+    .card>button {
+        margin-top: 75%;
+        padding: 20px 30px;
+        font-size: 35px;
+    }
+
+    footer {
+        font-size: 50px;
     }
 }
 
@@ -88,7 +114,7 @@ footer {
     }
 
     .navbar>img {
-        width: 300px;
+        width: 400px;
     }
 
     .main {
@@ -96,9 +122,20 @@ footer {
     }
 
     .card {
-        width: 100%;
-        margin-left: 15px;
-        margin-right: 15px;
+        width: 90%;
+        margin-left: auto;
+        margin-right: auto;
+        padding-bottom: 90%;
+    }
+
+    .card > button {
+        padding: 30px 35px;
+        font-size: 50px;
+        margin-top: 110%;
+    }
+
+    footer {
+        font-size: 50px;
     }
 }
 
@@ -107,14 +144,29 @@ footer {
         background-color: black;
     }
 
+    .navbar > img {
+        width: 300px
+    }
+
     .main {
         width: 100%;
     }
 
     .card {
-        width: 100%;
-        margin-left: 15px;
-        margin-right: 15px;
+        width: 90%;
+        margin-left: auto;
+        margin-right: auto;
+        height: 450px;
+    }
+
+    .card > button {
+        margin-top: 95%;
+        padding: 20px 30px;
+        font-size: var(--fontsize25px);    
+    }
+
+    footer {
+        font-size: 25px;
     }
 }
 
@@ -125,5 +177,21 @@ footer {
 
     .navbar>img {
         width: 250px;
+    }
+
+    .main {
+        width: 100%;
+    }
+
+    .card {
+        width: 90%;
+        margin-left: auto;
+        margin-right: auto;
+        height: 500px;
+    }
+    
+    .card > button {
+        margin-top: 100%;
+        padding: 20px 30px;
     }
 }
