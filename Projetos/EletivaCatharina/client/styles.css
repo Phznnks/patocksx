@@ -40,6 +40,7 @@ body,html {
 }
 
 .card {
+    position: relative;
     background-color: blue;
     display: inline-block;
     height: 620px;
@@ -50,6 +51,10 @@ body,html {
     box-shadow: var(--boxsaw);
     padding: 15px;
     text-align: center;
+}
+
+.card > p {
+    text-align: justify;
 }
 
 .capa {
@@ -64,6 +69,10 @@ body,html {
 }
 
 .card > button {
+    position: absolute;
+    bottom: 20px;
+    left: 50%;
+    transform: translateX(-50%);
     padding: 20px 30px;
     background-color: var(--backgbotao);
     color: var(--corbranco);
@@ -71,7 +80,6 @@ body,html {
     cursor: pointer;
     font-size: var(--fontsize25px);
     display: block;
-    margin: auto;
     box-shadow: var(--boxsaw);
     border-radius: 30px;
 }
@@ -148,12 +156,12 @@ footer {
     }
 
     h2 {
-        font-size: 40px;
+        font-size: 55px;
         margin-bottom: 5px;
     }
 
-    p {
-        font-size: 20px;
+    .card > p {
+        font-size: 30px;
         margin-bottom: 5px;
     }
 
@@ -164,7 +172,8 @@ footer {
     }
 
     footer {
-        font-size: 50px;
+        font-size: 60px;
+        text-align: center;
     }
 }
 
