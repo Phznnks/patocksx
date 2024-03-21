@@ -1,4 +1,5 @@
 :root {
+    --corbranco: white;
     --fontsize20px: 25px;
 }
 
@@ -63,4 +64,5 @@ footer {
     width: 100%;
     text-align: center;
     font-size: var(--fontsize20px);
+    color: var(--corbranco);
 }
