@@ -98,7 +98,11 @@ footer {
     color: var(--corbranco);
 }
 
-@media (max-width: 900px) {
+@media (max-width: 1250px) {
+    
+    body {
+        background-color: green;
+    }
 
     .logo {
         width: 250px;
@@ -130,5 +134,33 @@ footer {
 
     footer {
         font-size: 25px;
+    }
+}
+
+@media (max-width: 750px) {
+
+    body {
+        background-color: black;
+    }
+    .main {
+        width: 100%;
+    }
+
+    .card {
+        position: relative;
+        width: 92%;
+        min-height: 750px;
+        background-color: aliceblue;
+        display: inline-block;
+        margin: 20px auto;
+        padding: 5px;
+        border-radius: 10px;
+        overflow: hidden;
+        display: flex;
+        flex-direction: column;
+    }
+
+    footer {
+       font-size: 20px;
     }
 }
