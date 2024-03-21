@@ -2,7 +2,7 @@ from flask import Flask, render_template, request, redirect
 import pandas as pd
 import os
 
-app = Flask(__name__, template_folder=os.path.abspath('templates'))
+app = Flask(__name__, template_folder=os.path.abspath('Projetos/Flask/client'))
 
 # Lista para armazenar os dados das inscrições
 inscricoes = []
