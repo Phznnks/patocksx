@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Dados de Inscrição</title>
+</head>
+<body>
+    <h1>Dados de Inscrição</h1>
+    <ul>
+        {% for inscricao in inscricoes %}
+            <li><a href="/dados/{{loop.index0}}">{{ inscricao.nome }}</a></li>
+        {% endfor %}
+    </ul>
+    <br>
+    <a href="/">Voltar para o formulário de inscrição</a>
+</body>
+</html>
