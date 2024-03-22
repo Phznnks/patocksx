@@ -36,12 +36,12 @@ body {
 
 .card {
     position: relative;
-    width: 30.6%;
-    min-height: 600px; 
+    width: 29.6%;
+    min-height: 635px; 
     background-color: aliceblue;
     display: inline-block;
     margin: 15px 10px;
-    padding: 5px;
+    padding: 10px;
     border-radius: 12px;
     overflow: hidden;
 }
@@ -57,6 +57,7 @@ body {
 .card > h2 {
     margin-bottom: 10px;
     font-size: 35px;
+    text-align: center;
 }
 
 .card > p {
@@ -157,6 +158,9 @@ footer {
     .main {
         width: 100%;
     }
+    .logo {
+        width: 250px;
+    }
 
     .card {
         position: relative;
@@ -196,3 +200,11 @@ footer {
        font-size: 25px;
     }
 }
+
+/*
+@media (max-width: 500px){
+    footer {
+        font-size: 20px;
+    }
+}*/
+
