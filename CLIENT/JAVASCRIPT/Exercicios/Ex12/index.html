@@ -9,19 +9,21 @@
     <h1> Verificador de Idade </h1>
     <section>
         <label for=""> Ano de Nascimento: </label>
-        <input type="date" id="datanasc"> <br>
+        <input type="number" name="" id="txtano"> <br>
         <label for=""> Sexo: </label>
-        <input type="radio" name="" id="">
+        <input class="masc" type="radio" name="" id="">
         <label for=""> Masculino </label>
-        <input type="radio" name="" id="">
+        <input class="femin" type="radio" name="" id="">
         <label for=""> Feminino</label> <br>
-        <button type="submit"> Verificar </button> 
+        <input type="button" value="Verificar" onclick="verificar()">
         <div>
            <!-- <p id="genero"> Detectamos Genero Com x anos</p>
             <img src="fototempo.jpeg" alt=""> -->
         </div>
-        <p> Preencha os dados acima para ve os resultados. </p>
+        <p class="p"> Preencha os dados acima para ve os resultados. </p>
     </section>
     <p id="p2"> @pvdphznn </p>
+
+    <script src="script.js"></script>
 </body>
 </html>
