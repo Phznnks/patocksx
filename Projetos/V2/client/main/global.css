@@ -1,0 +1,55 @@
+/* MINHAS VARIAVEIS GLOBAIS*/
+
+/* REGRAS/SIGNIFICADOR DO MEU ROOT
+
+1- Tudo que tem um p, s, t, q, qt no final, cada um tem o seu significador sendo P o Primeiro,
+S o Segundo, T o Tercero, Q o Quarto e QT o Quinto, e assim por diante !.*/
+
+:root {
+    /*        Variaveis De Cores       */
+    --azulclarop: rgb(0, 166, 255);
+    --azul: rgb(0, 94, 255);
+    --cinzarp: rgb(129, 129, 129);
+    --cinzars: rgb(111, 111, 111);
+    --cinzart: rgb(82, 82, 82);
+    --pretop: black;
+    --brancop: #ffffff;
+}
+
+* {
+    /* Aplicacoes Globais */
+    font-family: Arial, Helvetica, sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+header {
+    display: flex;
+    justify-content: center;
+    background-color: var(--azul);
+}
+
+.logo {
+    width: 250px;
+}
+
+main {
+    background-color: var(--cinzarp);
+}
+
+.card {
+    background-color: var(--brancop);
+    width: 380px;
+    min-height: 760px;
+    display: inline-block;
+    padding: 5px;
+    margin: 10px 0;
+}
+
+.card img {
+    width: 100%;
+}
+
+footer {
+    background-color: var(--cinzart);
+}
