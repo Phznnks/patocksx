@@ -1,15 +1,20 @@
 <!DOCTYPE html>
 <html>
 <head>
+    <link rel="stylesheet" href="{{ url_for('static', filename='result.css') }}">
+    <link rel="stylesheet" href="../static/result.css">
+    <link rel="stylesheet" href="result.css">
     <title>Painel Ducksx</title>
 </head>
 <body>
-    <h1>Resultados</h1>
-    {% for item in data %}
-        <p>Nome: {{ item['nome'] }}</p>
-        <p>CPF: {{ item['cpf'] }}</p>
-        <p>Idade: {{ item['idade'] }}</p>
-        <hr>
-    {% endfor %}
+    <h1>Resultados Painel Patocksx</h1>
+    <div class="resultados">
+        {% for item in data %}
+            <p>NOME: {{ item['nome'] }}</p>
+            <p>CPF: {{ item['cpf'] }}</p>
+            <p>IDADE: {{ item['idade'] }}</p>
+            <hr>
+        {% endfor %}
+    </div>
 </body>
 </html>

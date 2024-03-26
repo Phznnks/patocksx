@@ -1,64 +1,44 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Resultado da Consulta</title>
-<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.4.3/dist/css/bootstrap.min.css" rel="stylesheet">
-<style>
-    body {
-        background-color: #f8f9fa;
-        padding: 20px;
-    }
-
-    .card {
-        margin-bottom: 20px;
-    }
-</style>
+    <link rel="stylesheet" href="{{ url_for('static', filename='resultcpf.css') }}">
+    <link rel="stylesheet" href="../static/resultcpf.css">
+    <link rel="stylesheet" href="resultcpf.css">
+    <title>Painel Ducksx</title>
 </head>
 <body>
-<div class="container">
-    <h1>Informações do Cliente</h1>
-    <div class="card">
-        <div class="card-header">
-            Dados Pessoais
-        </div>
-        <div class="card-body">
-            <p><strong>Nome:</strong> {{ data['nome'] }}</p>
-            <p><strong>CPF:</strong> {{ data['cpf'] }}</p>
-            <p><strong>Data de Nascimento:</strong> {{ data['dataNascimento'] }}</p>
-            <p><strong>Sexo:</strong> {{ data['sexo'] }}</p>
-        </div>
+    <h1>Resultados Painel Patocksx</h1>
+    <div class="resultados">
+        {% for item2 in data2 %}
+            <p>Nome: {{ item2.nome if item2.nome != 'null' else 'Não disponível' }}</p>
+            <p>CPF: {{ item2.cpf if item2.cpf != 'null' else 'Não disponível' }}</p>
+            <p>Data de Nascimento: {{ item2.dataNascimento if item2.dataNascimento != 'null' else 'Não disponível' }}</p>
+            <p>Data de Óbito: {{ item2.dataObito if item2.dataObito != 'null' else 'Não disponível' }}</p>
+            <p>E-mails: {% for email in item2.emails %}{{ email }} {% endfor %}</p>
+            <p>Empresas: {% for empresa in item2.empresas %}{{ empresa }} {% endfor %}</p>
+            <p>Endereços: {% for endereco in item2.enderecos %}{{ endereco }} {% endfor %}</p>
+            <p>Escolaridade: {{ item2.escolaridade if item2.escolaridade != 'null' else 'Não disponível' }}</p>
+            <p>Estado Civil: {{ item2.estadoCivil if item2.estadoCivil != 'null' else 'Não disponível' }}</p>
+            <p>Familiares: {% for familiar in item2.familiares %}{{ familiar }} {% endfor %}</p>
+            <p>Nacionalidade: {{ item2.nacionalidade if item2.nacionalidade != 'null' else 'Não disponível' }}</p>
+            <p>Naturalidade: {{ item2.naturalidade if item2.naturalidade != 'null' else 'Não disponível' }}</p>
+            <p>Nome da Mãe: {{ item2.nomeMae if item2.nomeMae != 'null' else 'Não disponível' }}</p>
+            <p>Nome do Pai: {{ item2.nomePai if item2.nomePai != 'null' else 'Não disponível' }}</p>
+            <p>Ocupação: {{ item2.ocupacao if item2.ocupacao != 'null' else 'Não disponível' }}</p>
+            <p>PIS/NIS: {{ item2.pisNis if item2.pisNis != 'null' else 'Não disponível' }}</p>
+            <p>Poder Aquisitivo: {{ item2.poderAquisitivo if item2.poderAquisitivo != 'null' else 'Não disponível' }}</p>
+            <p>Renda: {{ item2.renda if item2.renda != 'null' else 'Não disponível' }}</p>
+            <p>RG Emissor/Orgão: {{ item2.rgEmissorOrgao if item2.rgEmissorOrgao != 'null' else 'Não disponível' }}</p>
+            <p>RG Emissor/UF: {{ item2.rgEmissorUf if item2.rgEmissorUf != 'null' else 'Não disponível' }}</p>
+            <p>RG Número: {{ item2.rgNumero if item2.rgNumero != 'null' else 'Não disponível' }}</p>
+            <p>Score: {{ item2.score if item2.score != 'null' else 'Não disponível' }}</p>
+            <p>Sexo: {{ item2.sexo if item2.sexo != 'null' else 'Não disponível' }}</p>
+            <p>Situação RF: {{ item2.situacaoRF if item2.situacaoRF != 'null' else 'Não disponível' }}</p>
+            <p>Subclasse Social: {{ item2.subClasseSocial if item2.subClasseSocial != 'null' else 'Não disponível' }}</p>
+            <p>Telefones: {% for telefone in item2.telefones %}{{ telefone }} {% endfor %}</p>
+            <p>Título de Eleitor: {{ item2.tituloEleitor if item2.tituloEleitor != 'null' else 'Não disponível' }}</p>
+            <hr>
+        {% endfor %}
     </div>
-    <div class="card">
-        <div class="card-header">
-            Situação Financeira
-        </div>
-        <div class="card-body">
-            <p><strong>Classe Social:</strong> {{ data['classeSocial'] }}</p>
-            <p><strong>Sub-Classe Social:</strong> {{ data['subClasseSocial'] }}</p>
-            <p><strong>Poder Aquisitivo:</strong> {{ data['poderAquisitivo'] }}</p>
-            <p><strong>Renda:</strong> {{ data['renda'] }}</p>
-        </div>
-    </div>
-    <div class="card">
-        <div class="card-header">
-            Contatos
-        </div>
-        <div class="card-body">
-            <p><strong>Emails:</strong> {{ data['emails'] }}</p>
-            <p><strong>Telefones:</strong> {{ data['telefones'] }}</p>
-        </div>
-    </div>
-    <div class="card">
-        <div class="card-header">
-            Score
-        </div>
-        <div class="card-body">
-            <p><strong>Score:</strong> {{ data['score'] }}</p>
-        </div>
-    </div>
-</div>
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.4.3/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>
