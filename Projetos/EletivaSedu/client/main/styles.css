@@ -1,49 +1,79 @@
-:root {
-    --corazulclaro2: rgb(0, 140, 255);
-    --corazulclaro: rgb(0, 190, 247);
-    --corcinzar: rgb(94, 94, 94);
-    --corcinzarescuro: rgb(71, 71, 71);
-    --corcinzarclaro: rgb(133, 133, 133);
-    --corbranco: #ffffff;
-}
-
 * {
     font-family: Arial, Helvetica, sans-serif;
-    max-width: 100%;
-    max-height: 100%;
-    margin: 0%;
-    padding: 0%;
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
 }
 
 body {
     background-color: red;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
 }
 
 .navbar {
-    background-color: var(--corazulclaro)
+    background-color: var(--corazulclaro);
+    padding: 12px 0;
 }
 
 .logo {
     width: 235px;
     display: block;
     margin: auto;
-    padding: 12px 0;
 }
 
 .main {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
     background-color: var(--corcinzar);
+    padding: 15px;
 }
 
 .card {
-    position: relative;
-    width: 29.6%;
-    min-height: 635px; 
+    width: calc(100% - 20px);
+    max-width: 400px;
+    min-height: 635px;
     background-color: aliceblue;
-    display: inline-block;
-    margin: 15px 10px;
+    margin: 10px;
     padding: 10px;
     border-radius: 12px;
-    overflow: hidden;
+    position: relative; /* Adicionado */
+}
+
+@media (max-width: 767px) {
+    .card {
+        width: calc(100% - 20px);
+        max-width: 100%;
+        min-height: 635px;
+        margin: 10px;
+        padding: 10px;
+        border-radius: 12px;
+    }
+}
+
+@media (min-width: 768px) and (max-width: 1199px) {
+    .card {
+        width: calc(50% - 20px);
+        max-width: none;
+        min-height: 635px;
+        margin: 10px;
+        padding: 10px;
+        border-radius: 12px;
+    }
+}
+
+@media (min-width: 1200px) {
+    .card {
+        width: calc(33.33% - 20px);
+        max-width: none;
+        min-height: 635px;
+        margin: 10px;
+        padding: 10px;
+        border-radius: 12px;
+    }
 }
 
 .capa {
@@ -67,12 +97,12 @@ body {
 }
 
 .button-container {
-    position: absolute;
-    bottom: 20px;
+    text-align: center;
+    position: absolute; /* Alterado */
+    bottom: 20px; /* Adicionado */
     left: 50%;
     transform: translateX(-50%);
     margin-top: auto;
-    text-align: center;
 }
 
 button {
@@ -92,119 +122,8 @@ button:hover {
 footer {
     background-color: rgb(101, 101, 101);
     padding: 20px 0;
-    width: 100%;
-    margin-top: auto;
     text-align: center;
     font-size: 35px;
     color: var(--corbranco);
+    margin-top: auto;
 }
-
-@media (min-width: 1080px){
-    .main {
-        background-color: yellow
-    }
-}
-
-@media (max-width: 1079.99px) {
-    
-    body {
-        background-color: green;
-    }
-
-    .logo {
-        width: 320px;
-    }
-
-    .card {
-        position: relative;
-        width: 90%;
-        min-height: 1220px;
-        margin: 20px auto;
-        padding: 5px;
-        overflow: hidden;
-        display: flex;   
-        flex-direction: column;  
-    }
-
-    .capa {
-        width: 100%;
-        height: 510px;
-    }
-
-    .card > h2 {
-        text-align: center;
-        font-size: 65px;
-    }
-
-    .card > p {
-        font-size: 35px;
-    }
-
-    button {
-        padding:35px 45px;
-        font-size: 35px;
-    }
-
-    footer {
-        font-size: 45px;
-    }
-}
-
-@media (max-width: 747.99px) {
-
-    body {
-        background-color: black;
-    }
-    .main {
-        width: 100%;
-    }
-    .logo {
-        width: 250px;
-    }
-
-    .card {
-        position: relative;
-        width: 92%;
-        min-height: 820px;
-        background-color: aliceblue;
-        display: inline-block;
-        margin: 20px auto;
-        padding: 5px;
-        border-radius: 10px;
-        overflow: hidden;
-        display: flex;
-        flex-direction: column;
-    }
-
-    .capa {
-        width: 100%;
-        height: 310px;
-    }
-
-    .card > h2 {
-        text-align: center;
-        font-size: 45px;
-    }
-
-    .card > p {
-        font-size: 25px;
-    }
-
-
-    button {
-        padding: 15px 25px;
-        font-size: 35px;
-    }
-
-    footer {
-       font-size: 25px;
-    }
-}
-
-/*
-@media (max-width: 450px){
-    footer {
-        font-size: 20px;
-    }
-}*/
-
