@@ -1,4 +1,4 @@
-from flask import Flask, request, render_template
+from flask import Flask, render_template, request
 import requests
 import os
 
@@ -6,35 +6,53 @@ app = Flask(__name__, template_folder=os.path.abspath('Tools/Painel-Ducksx/clien
 
 @app.route('/', methods=['GET', 'POST'])
 def index():
-    render_template('index.html')
     if request.method == 'POST':
-        nome = request.form['nome']
-        nome_formatado = nome.replace(" ", "+")
+        nome_formatado = request.form['nome']
+        opcao = request.form['opcao']
+        cnpj = nome_formatado
+        if opcao in ['1', '5', '6']:
+            url = f"https://dbftools.pro/api/tools/name?q={nome_formatado}"
+        elif opcao in ['2', '3']: 
+            url = f"https://dbftools.pro/api/tools/search-cpf/{cnpj}"
+        else:
+            return "Em Desenvolvimento."
 
-        url = f"https://dbftools.pro/api/tools/name?q={nome_formatado}"
-        urlcpf = f"https://dbftools.pro/api/tools/search-cpf/{nome_formatado}"
         response = requests.get(url)
-        responsecpf = requests.get(urlcpf)
+        data = response.json()
 
         if response.status_code == 200:
-            opcao = request.form.get('opcao')
             if opcao == '1':
-                data = response.json()
-                formatted_data = [{'nome': item.get('nome'), 'cpf': item.get('cpf'), 'idade': item.get('idade')} for item in data]
+                formatted_data = [{
+                    'nome': item.get('nome'),
+                    'cpf': item.get('cpf'),
+                    'idade': item.get('idade'),
+                    'nomeMae': item.get('nomeMae')
+                    } for item in data]
                 return render_template('result.html', data=formatted_data)
             elif opcao == '2':
-                if responsecpf.status_code == 200:
-                    return responsecpf.json()
-                else: 
-                    return "ERRO: 201"
-            elif opcao >= '3':
-                return "Site em Desenvolvimento"
-            else:
-                return "Escolha algun para consultar!"
+                enderecos_formatados = []
+                for endereco in data.get('enderecos', []):
+                    endereco_formatado = f"{endereco.get('endereco', '')}, {endereco.get('numero', '')} - {endereco.get('bairro', '')}, {endereco.get('cidade', '')}, {endereco.get('estadoUF', '')}"
+                    enderecos_formatados.append(endereco_formatado)
+
+                emails_formatados = []
+                for email in data.get('emails', []):
+                    email_formatado = f"{email.get('email', '')} - {email.get('status', '')}"
+                    emails_formatados.append(email_formatado)
+
+                telefones_formatados = []
+                for telefone in data.get('telefones', []):
+                    telefone_formatado = f"({telefone.get('ddd', '')}) {telefone.get('numero', '')}"
+                    telefones_formatados.append(telefone_formatado)
+
+                return render_template('resultcpf.html', data=data, enderecos=enderecos_formatados, emails=emails_formatados, telefones=telefones_formatados)
+        elif opcao == '3':
+            return response.json(), print(response.json())
         else:
-            return "Erro ao fazer a requisição."
+            return "ERRO: Parece que algo deu errado!."
+
     return render_template('index.html')
 
 if __name__ == '__main__':
     app.run(debug=True)
-    
+
