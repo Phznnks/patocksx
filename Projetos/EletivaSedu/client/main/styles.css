@@ -149,18 +149,22 @@ footer {
 /* Computadores/Notebooks */
 @media (min-width: 1200px) {
     .logo {
-        width: 320px;
+        width: 335px;
     }
 
     .card {
-        width: calc(33.33% - 20px);
+        width: calc(33.33% - 22px);
         max-width: none;
         min-height: 635px;
+    }
+
+    footer {
+        font-size: 35px;
     }
 }
 
 /* Telas Entre 800px a 1199.99px. */
-/* Telas de Celulares/Tablet Maiores */
+/* Telas de Celulares Maiores/Tablet */
 @media (min-width: 800px) and (max-width: 1199.99px) {
     .logo {
         width: 420px;
@@ -169,7 +173,7 @@ footer {
     .card {
         width: calc(100% - 20px);
         max-width: none;
-        height: 1460px;
+        height: 1360px;
         border-radius: 25px;
     }
 
@@ -177,17 +181,22 @@ footer {
         height: 520px;
     }
 
-    .card > h2 {
-        font-size: 50px;
+    .card>h2 {
+        font-size: 70px;
     }
 
-    .card > p {
-        font-size: 24px;
+    .card>p {
+        font-size: 45px;
     }
 
     button {
-        padding: 20px 30px;
-        font-size: 24px;
+        padding: 30px 45px;
+        font-size: 45px;
+        border-radius: 75px;
+    }
+
+    footer {
+        font-size: 32px;
     }
 }
 
@@ -204,17 +213,22 @@ footer {
         min-height: 850px;
     }
 
-    .card > p {
-        font-size: 20px;
+    .card>h2 {
+        font-size: 35px;
+    } 
+
+    .card>p {
+        font-size: 24px;
     }
 
     button {
-        padding: 12px 20px;
-        font-size: 18px;
+        padding: 20px 40px;
+        font-size: 25px;
+        border-radius: 75px;
     }
 
     footer {
-        font-size: 18px;
+        font-size: 25px;
     }
 }
 
