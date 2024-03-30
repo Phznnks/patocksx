@@ -173,7 +173,7 @@ footer {
     .card {
         width: calc(100% - 20px);
         max-width: none;
-        height: 1360px;
+        height: 1400px;
         border-radius: 25px;
     }
 
@@ -196,7 +196,7 @@ footer {
     }
 
     footer {
-        font-size: 32px;
+        font-size: 35px;
     }
 }
 
@@ -228,7 +228,7 @@ footer {
     }
 
     footer {
-        font-size: 25px;
+        font-size: 24px;
     }
 }
 
@@ -236,14 +236,14 @@ footer {
 /* Celulares de Porte Pequeno. */
 @media (max-width: 490px) {
     .logo {
-        width: 210px
+        width: 210px;
     }
 
     .capa {
-        height: 200px
+        height: 200px;
     }
 
     footer {
-        font-size: 15px;
+        font-size: 18px;
     }
 }
