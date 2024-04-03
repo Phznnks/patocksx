@@ -53,6 +53,8 @@ def index():
             if opcao == '2':
                 #Processamento dos dados para a opção 2.
                 return render_template('resultcpf.html', dados=dados)
+            if opcao == '3':
+                return render_template('resultcnpj.html', dados=dados)
         else: 
             #Se nao funcionar retorna essa mensagem
             return "ERRO: Parece que algo deu errado!."

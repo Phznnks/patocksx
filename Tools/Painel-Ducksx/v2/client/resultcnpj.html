@@ -1,0 +1,25 @@
+
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title> CONSULTAR CNPJ </title>
+</head>
+<body>
+    <h1> RESULTADOR CNPJ </h1>
+    <ul>
+    {% for item in dados %}
+        <li><strong>Bairro:</strong> {{ item['bairro'] }}</li>
+        <li><strong>CEP:</strong> {{ item['cep'] }}</li>
+        <li><strong>Cidade:</strong> {{cidade}}</li>
+        <li><strong>CNPJ:</strong> {{cnpj}}</li>
+        <li><strong>Complemento:</strong> {{complemento}}</li>
+        <li><strong>Data de Fundação:</strong> {{dataFundacao}}</li>
+        <li><strong>Endereço:</strong> {{endereco}}</li>
+        <li><strong>Estado/UF:</strong> {{estadoUF}}</li>
+        <li><strong>Razão Social:</strong> {{razaoSocial}}</li>
+    {% endfor %}
+    </ul>
+</body>
+</html>

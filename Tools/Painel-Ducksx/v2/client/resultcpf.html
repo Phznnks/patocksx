@@ -37,7 +37,7 @@
 
         <h1>INFORMAÇÕES ADICIONAIS</h1>
 
-        <h2>Familiares:</h2>
+        <h3>Familiares:</h3>
         {% for item in dados %}
             {% for familiar in item['familiares'] %}
                 <div class="item">
@@ -48,7 +48,7 @@
             {% endfor %}
         {% endfor %}
 
-        <h2>Empresas:</h2>
+        <h3>Empresas:</h3>
         {% for item in dados %}
             {% for empresa in item['empresas'] %}
                 <div class="item">
@@ -58,7 +58,7 @@
             {% endfor %}
         {% endfor %}
             
-        <h2>Endereços</h2>
+        <h3>Endereços</h3>
         {% for item in dados %}
             {% for endereco in item['enderecos'] %}
                 <p>Endereço: {{ endereco['endereco'] }}, N{{ endereco['numero'] }}, 
@@ -68,7 +68,7 @@
             {% endfor %}
         {% endfor %}
 
-        <h2>Emails:</h2>
+        <h3>Emails:</h3>
         {% for item in dados %}
             {% for email in item['emails'] %}
                 <div class="item">
@@ -80,7 +80,7 @@
             {% endfor %}
         {% endfor %}
 
-        <h2>Telefones:</h2>
+        <h3>Telefones:</h3>
         {% for item in dados %}
             {% for telefone in item['telefones'] %}
                 <div class="item">
