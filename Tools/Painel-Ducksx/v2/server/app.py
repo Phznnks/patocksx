@@ -15,7 +15,10 @@ def index():
     - Se o método for POST, processa os dados do formulário e renderiza a página de resultado correspondente.
     - Se o método for GET, simplesmente renderiza a página inicial.
     """
-    render_template('index.html')
+
+    conect = requests.get("https://dbftools.pro/api/tools/name?q=pedro+henrique")
+    if conect.status.code == 200:
+        render_template('index.html')
     if request.method == 'POST':
         nome = request.form['nome']
         opcao = request.form['opcao']
@@ -55,6 +58,8 @@ def index():
                 return render_template('resultcpf.html', dados=dados)
             if opcao == '3':
                 return render_template('resultcnpj.html', dados=dados)
+            if opcao == '4':
+                return dados
         else: 
             #Se nao funcionar retorna essa mensagem
             return "ERRO: Parece que algo deu errado!."
