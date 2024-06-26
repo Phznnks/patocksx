@@ -5,7 +5,7 @@ verificador = 0
 tablenome = []
 
 while quantinome > verificador:
-    listanomes = [str(input('Informe os nomes da analiser de dados: '))]
+    listanomes = [str(input('Informe o nome da pessoa, para analiser de dados: '))]
     tablenome = tablenome + listanomes 
     verificador = verificador + 1
 print('fim do loop')
