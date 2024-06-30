@@ -7,13 +7,19 @@ organizar de A a Z, ou gerar numeros aleatorios de x em x e enverte para a ordem
 ''' SIGNIFICADO DAS VARIAVEIS
 TOTALN -- TOTAL DE NOMES QUE A PESSOA QUE COLOCA.}
 VALORAT -- VALOR ATUAL 
+NOMEF -- NOME FORMATADOR
 '''
 
 valorat = 0
 totaln = int(input('Informe a quantidade de pessoa que estará na lista: '))
 nomes = []
 
-while totaln > valorat: 
-    nomes = nomes + [str(input('Informe o nome da pessoa: '))]
-    valorat = valorat + 1
+while valorat < totaln: 
+    nome = input('Informe o nome da pessoa: ')
+    nomef = nome.capitalize()
+    nomes.append(nomef)
+    valorat += 1
+
 print(nomes)
+
+
