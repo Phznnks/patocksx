@@ -1,0 +1,32 @@
+*{
+    padding: 0;
+    margin: 0;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+h1{
+    text-align: center;
+}
+
+main {
+    width: 350px;
+    margin: auto;
+}
+
+label {
+    font-size: 25px;
+}
+
+#name {
+    width: 200px;
+    border-radius: 20px;
+}
+
+.button {
+    border-radius: 30px;;
+    background-color: chartreuse;
+    font-size: 25px;
+    border: none;
+    padding: 10px;
+    margin: 10px;
+}
