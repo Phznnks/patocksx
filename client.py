@@ -1,16 +1,14 @@
 import socket
 import threading
 
-
 def send_message(client_socket):
     while True:
         message = input()
         client_socket.send(message.encode('utf-8'))
 
 
-host = '0.0.0.0'  # Substitua pelo IP do servidor
+host = '127.0.0.1'  # Substitua pelo IP do servidor
 port = 5000
-
 
 client_socket = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
 

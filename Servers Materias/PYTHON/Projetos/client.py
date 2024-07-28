@@ -8,14 +8,14 @@ def send_message(client_socket):
         client_socket.send(message.encode('utf-8'))
 
 # Configurações do cliente
-host = '0.0.0.0'  # Substitua pelo IP do servidor
+host = '127.0.0.1'  # Substitua pelo IP do servidor
 port = 5000
 
 # Cria um socket TCP/IP
 client_socket = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
 
 try:
-    # Conecta ao servidor
+    #Conecta ao servidor 
     client_socket.connect((host, port))
     print(f'Conectado ao servidor em {host}:{port}')
 
