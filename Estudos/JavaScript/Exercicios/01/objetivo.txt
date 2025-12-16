@@ -1,0 +1,17 @@
+api (/): visualizar produtos em json, e ser nao tive produtos falar que ainda nao tem produtos cadastrados!.
+api (/criarproduto): criar novo produto
+api (/editarproduto): editar produto
+api (/deletarproduto): deleta produto
+
+Cadastro no Sql sera assim
+produtos.roupas = {
+    Id = ordemdecriacao comecando no 1, --nao poderar ter outro id igual ao mesmo 
+    Nome = 'Nome X',    
+    Preco = 17,99,    
+    Foto = [],
+    Tamanhos = [P, M, G, GG], 
+    Cores = [Vermelho, Azul, Preto],
+    TipoPeca = [Camisa, Bermuda, Bone, Chinelo],
+    Moda = [Masculino, Femenina]
+
+}, 

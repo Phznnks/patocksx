@@ -1,0 +1,329 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>XEON RACING | Sistema Premium</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=Rajdhani:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="app-container">
+        <!-- Background Animado -->
+        <div class="bg-animation">
+            <div class="stars"></div>
+            <div class="particles"></div>
+        </div>
+
+        <!-- Menu Principal -->
+        <div id="menuPrincipal" class="screen active">
+            <div class="main-header">
+                <div class="logo-container">
+                    <div class="logo-pulse">
+                        <div class="logo-icon">⚡</div>
+                    </div>
+                    <h1 class="logo-text">XEON RACING</h1>
+                    <div class="logo-subtitle">SISTEMA PREMIUM</div>
+                </div>
+                <div class="version-badge">v2.0</div>
+            </div>
+
+            <div class="menu-grid">
+                <div class="menu-card" onclick="abrirCorridasPredefinidas()">
+                    <div class="card-icon">🗺️</div>
+                    <div class="card-content">
+                        <h3>CORRIDAS PRONTAS</h3>
+                        <p>Rotas profissionais pré-definidas</p>
+                        <div class="card-stats">
+                            <span>+15 circuitos</span>
+                            <span>Ranking global</span>
+                        </div>
+                    </div>
+                    <div class="card-glow"></div>
+                </div>
+
+                <div class="menu-card" onclick="abrirCorridaPersonalizada()">
+                    <div class="card-icon">🎯</div>
+                    <div class="card-content">
+                        <h3>CORRIDA CUSTOM</h3>
+                        <p>Crie sua própria rota</p>
+                        <div class="card-stats">
+                            <span>Checkpoints ilimitados</span>
+                            <span>Compartilhe com amigos</span>
+                        </div>
+                    </div>
+                    <div class="card-glow"></div>
+                </div>
+
+                <div class="menu-card" onclick="abrirRanking()">
+                    <div class="card-icon">🏆</div>
+                    <div class="card-content">
+                        <h3>RANKING GLOBAL</h3>
+                        <p>Top 10 melhores pilotos</p>
+                        <div class="card-stats">
+                            <span>Posição #1</span>
+                            <span>Prêmios exclusivos</span>
+                        </div>
+                    </div>
+                    <div class="card-glow"></div>
+                </div>
+
+                <div class="menu-card" onclick="fecharPainel()">
+                    <div class="card-icon">🚪</div>
+                    <div class="card-content">
+                        <h3>SAIR</h3>
+                        <p>Fechar painel</p>
+                    </div>
+                    <div class="card-glow"></div>
+                </div>
+            </div>
+
+            <div class="live-stats">
+                <div class="stat-item">
+                    <div class="stat-value" id="onlineNow">128</div>
+                    <div class="stat-label">PILOTOS ONLINE</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-value" id="racesToday">47</div>
+                    <div class="stat-label">CORRIDAS HOJE</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-value" id="topSpeed">327</div>
+                    <div class="stat-label">KM/H RECORDE</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Corridas Predefinidas -->
+        <div id="corridasPredefinidas" class="screen">
+            <div class="screen-header">
+                <button class="back-btn" onclick="voltarMenu()">
+                    <span>‹</span>
+                    VOLTAR
+                </button>
+                <div class="header-title">
+                    <h2>CORRIDAS PRONTAS</h2>
+                    <p>Selecione um circuito profissional</p>
+                </div>
+                <div class="header-actions">
+                    <div class="filter-toggle">
+                        <span>FILTRAR</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="tracks-container">
+                <div class="track-filters">
+                    <div class="filter-tags">
+                        <button class="filter-tag active">TODAS</button>
+                        <button class="filter-tag">URBANO</button>
+                        <button class="filter-tag">OFF-ROAD</button>
+                        <button class="filter-tag">DRIFT</button>
+                        <button class="filter-tag">CIRCUITO</button>
+                    </div>
+                </div>
+
+                <div class="tracks-grid" id="listaTracks">
+                    <!-- Tracks serão carregadas via JavaScript -->
+                </div>
+            </div>
+        </div>
+
+        <!-- Corrida Personalizada -->
+        <div id="corridaPersonalizada" class="screen">
+            <div class="screen-header">
+                <button class="back-btn" onclick="voltarMenu()">
+                    <span>‹</span>
+                    VOLTAR
+                </button>
+                <div class="header-title">
+                    <h2>CORRIDA PERSONALIZADA</h2>
+                    <p>Crie sua rota única</p>
+                </div>
+            </div>
+
+            <div class="custom-race-container">
+                <div class="creation-steps">
+                    <div class="step active">
+                        <div class="step-number">1</div>
+                        <div class="step-info">
+                            <h4>DEFINIR ROTA</h4>
+                            <p>Adicione checkpoints no mapa</p>
+                        </div>
+                    </div>
+                    <div class="step">
+                        <div class="step-number">2</div>
+                        <div class="step-info">
+                            <h4>CONFIGURAR</h4>
+                            <p>Ajuste detalhes da corrida</p>
+                        </div>
+                    </div>
+                    <div class="step">
+                        <div class="step-number">3</div>
+                        <div class="step-info">
+                            <h4>CONVIDAR</h4>
+                            <p>Chame outros pilotos</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="custom-config">
+                    <div class="config-section">
+                        <h3>CONFIGURAÇÕES DA CORRIDA</h3>
+                        <div class="config-grid">
+                            <div class="config-input">
+                                <label>NOME DA CORRIDA</label>
+                                <input type="text" id="customRaceName" placeholder="Minha Corrida Personalizada" class="modern-input">
+                            </div>
+                            <div class="config-input">
+                                <label>NÚMERO DE VOLTAS</label>
+                                <select id="customLaps" class="modern-select">
+                                    <option value="1">1 VOLTA</option>
+                                    <option value="2">2 VOLTAS</option>
+                                    <option value="3" selected>3 VOLTAS</option>
+                                    <option value="5">5 VOLTAS</option>
+                                    <option value="10">10 VOLTAS</option>
+                                </select>
+                            </div>
+                            <div class="config-input">
+                                <label>VEÍCULOS PERMITIDOS</label>
+                                <select id="vehicleClass" class="modern-select">
+                                    <option value="all">TODOS</option>
+                                    <option value="sports">ESPORTIVOS</option>
+                                    <option value="super">SUPER CARROS</option>
+                                    <option value="motorcycles">MOTOS</option>
+                                    <option value="offroad">OFF-ROAD</option>
+                                </select>
+                            </div>
+                            <div class="config-input">
+                                <label>DIFICULDADE</label>
+                                <select id="difficulty" class="modern-select">
+                                    <option value="easy">FÁCIL</option>
+                                    <option value="medium" selected>MÉDIO</option>
+                                    <option value="hard">DIFÍCIL</option>
+                                    <option value="expert">EXPERT</option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="checkpoints-section">
+                        <h3>CHECKPOINTS ADICIONADOS: <span id="checkpointCount">0</span></h3>
+                        <div class="checkpoints-list" id="checkpointsList">
+                            <!-- Checkpoints serão listados aqui -->
+                        </div>
+                    </div>
+                </div>
+
+                <div class="creation-actions">
+                    <button class="btn-secondary" onclick="adicionarCheckpoint()">
+                        <span>📍</span>
+                        ADICIONAR CHECKPOINT
+                    </button>
+                    <button class="btn-primary" onclick="iniciarCorridaPersonalizada()">
+                        <span>🏁</span>
+                        INICIAR CORRIDA
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Painel Durante Corrida -->
+        <div id="painelCorrida" class="race-hud">
+            <div class="hud-main">
+                <div class="position-display">
+                    <div class="position-label">POSIÇÃO</div>
+                    <div class="position-value" id="hudPosition">1</div>
+                    <div class="position-total">de <span id="hudTotalRacers">8</span></div>
+                </div>
+
+                <div class="checkpoint-display">
+                    <div class="checkpoint-label">CHECKPOINT</div>
+                    <div class="checkpoint-value" id="hudCheckpoint">3/12</div>
+                    <div class="checkpoint-progress">
+                        <div class="progress-bar">
+                            <div class="progress-fill" id="checkpointProgress"></div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="time-display">
+                    <div class="time-label">TEMPO</div>
+                    <div class="time-value" id="hudTime">01:24.56</div>
+                    <div class="time-diff" id="hudDiff">+2.34</div>
+                </div>
+            </div>
+
+            <div class="hud-racers">
+                <div class="racers-title">COMPETIDORES</div>
+                <div class="racers-list" id="hudRacersList">
+                    <!-- Lista de competidores -->
+                </div>
+            </div>
+        </div>
+
+        <!-- Tela de Resultados -->
+        <div id="painelResultados" class="results-screen">
+            <div class="results-container">
+                <div class="results-header">
+                    <div class="results-title">CORRIDA FINALIZADA</div>
+                    <div class="results-subtitle" id="resultsTrackName">CIRCUITO URBANO</div>
+                </div>
+
+                <div class="podium">
+                    <div class="podium-spot second">
+                        <div class="podium-rank">2º</div>
+                        <div class="podium-platform"></div>
+                        <div class="podium-info">
+                            <div class="podium-name" id="secondPlace">---</div>
+                            <div class="podium-time" id="secondTime">--:--.---</div>
+                        </div>
+                    </div>
+
+                    <div class="podium-spot first">
+                        <div class="podium-rank">1º</div>
+                        <div class="podium-platform"></div>
+                        <div class="podium-info">
+                            <div class="podium-name" id="firstPlace">---</div>
+                            <div class="podium-time" id="firstTime">--:--.---</div>
+                            <div class="podium-trophy">🏆</div>
+                        </div>
+                    </div>
+
+                    <div class="podium-spot third">
+                        <div class="podium-rank">3º</div>
+                        <div class="podium-platform"></div>
+                        <div class="podium-info">
+                            <div class="podium-name" id="thirdPlace">---</div>
+                            <div class="podium-time" id="thirdTime">--:--.---</div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="results-stats">
+                    <div class="result-stat">
+                        <div class="stat-name">MELHOR VOLTA</div>
+                        <div class="stat-value" id="bestLap">--:--.---</div>
+                    </div>
+                    <div class="result-stat">
+                        <div class="stat-name">VELOCIDADE MÁX</div>
+                        <div class="stat-value" id="topSpeedResult">--- km/h</div>
+                    </div>
+                    <div class="result-stat">
+                        <div class="stat-name">RECOMPENSA</div>
+                        <div class="stat-value" id="raceReward">$0</div>
+                    </div>
+                </div>
+
+                <div class="results-actions">
+                    <button class="btn-results" onclick="fecharResultados()">
+                        CONTINUAR
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

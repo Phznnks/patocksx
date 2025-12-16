@@ -1,0 +1,838 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root {
+    --primary: #00f0ff;
+    --primary-glow: #00f0ff80;
+    --secondary: #ff00c8;
+    --accent: #00ff88;
+    --dark: #0a0a14;
+    --darker: #050508;
+    --light: #ffffff;
+    --gray: #8b8ba0;
+    --success: #00ff95;
+    --warning: #ffb800;
+    --danger: #ff2e5b;
+}
+
+body {
+    font-family: 'Rajdhani', sans-serif;
+    background: var(--darker);
+    color: var(--light);
+    overflow: hidden;
+    font-weight: 500;
+}
+
+.app-container {
+    width: 100vw;
+    height: 100vh;
+    position: relative;
+}
+
+/* Background Animado */
+.bg-animation {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+    background: linear-gradient(135deg, var(--darker) 0%, #0f0f1f 100%);
+}
+
+.stars {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background-image: 
+        radial-gradient(2px 2px at 20px 30px, #eee, transparent),
+        radial-gradient(2px 2px at 40px 70px, #fff, transparent),
+        radial-gradient(1px 1px at 90px 40px, #fff, transparent);
+    background-repeat: repeat;
+    background-size: 200px 100px;
+    animation: starsMove 20s linear infinite;
+}
+
+.particles {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background: 
+        radial-gradient(circle at 20% 80%, var(--primary-glow) 0%, transparent 50%),
+        radial-gradient(circle at 80% 20%, var(--secondary) 0%, transparent 50%);
+    opacity: 0.1;
+    animation: particlesPulse 8s ease-in-out infinite;
+}
+
+@keyframes starsMove {
+    from { transform: translateY(0); }
+    to { transform: translateY(100px); }
+}
+
+@keyframes particlesPulse {
+    0%, 100% { opacity: 0.1; transform: scale(1); }
+    50% { opacity: 0.15; transform: scale(1.1); }
+}
+
+/* Screens */
+.screen {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    padding: 30px;
+    display: none;
+    flex-direction: column;
+}
+
+.screen.active {
+    display: flex;
+}
+
+/* Menu Principal */
+.main-header {
+    text-align: center;
+    margin-bottom: 50px;
+    position: relative;
+}
+
+.logo-container {
+    margin-bottom: 20px;
+}
+
+.logo-pulse {
+    display: inline-block;
+    animation: logoPulse 2s ease-in-out infinite;
+}
+
+.logo-icon {
+    font-size: 4em;
+    filter: drop-shadow(0 0 20px var(--primary));
+}
+
+.logo-text {
+    font-family: 'Orbitron', sans-serif;
+    font-size: 3.5em;
+    font-weight: 900;
+    background: linear-gradient(45deg, var(--primary), var(--secondary));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    text-shadow: 0 0 30px var(--primary-glow);
+    margin: 10px 0;
+}
+
+.logo-subtitle {
+    font-size: 1.2em;
+    color: var(--gray);
+    letter-spacing: 3px;
+    text-transform: uppercase;
+}
+
+.version-badge {
+    position: absolute;
+    top: 0;
+    right: 0;
+    background: linear-gradient(45deg, var(--primary), var(--secondary));
+    padding: 5px 15px;
+    border-radius: 20px;
+    font-size: 0.9em;
+    font-weight: 700;
+}
+
+@keyframes logoPulse {
+    0%, 100% { transform: scale(1); }
+    50% { transform: scale(1.05); }
+}
+
+/* Menu Grid */
+.menu-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 25px;
+    max-width: 900px;
+    margin: 0 auto;
+    flex: 1;
+}
+
+.menu-card {
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 20px;
+    padding: 30px;
+    cursor: pointer;
+    position: relative;
+    overflow: hidden;
+    transition: all 0.3s ease;
+    backdrop-filter: blur(10px);
+}
+
+.menu-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255,255,255,0.1), transparent);
+    transition: left 0.5s;
+}
+
+.menu-card:hover::before {
+    left: 100%;
+}
+
+.menu-card:hover {
+    transform: translateY(-5px);
+    border-color: var(--primary);
+    box-shadow: 0 10px 30px rgba(0, 240, 255, 0.2);
+}
+
+.card-icon {
+    font-size: 3em;
+    margin-bottom: 20px;
+    filter: drop-shadow(0 0 10px currentColor);
+}
+
+.card-content h3 {
+    font-family: 'Orbitron', sans-serif;
+    font-size: 1.4em;
+    margin-bottom: 10px;
+    color: var(--light);
+}
+
+.card-content p {
+    color: var(--gray);
+    margin-bottom: 15px;
+    font-size: 0.9em;
+}
+
+.card-stats {
+    display: flex;
+    justify-content: space-between;
+    font-size: 0.8em;
+    color: var(--primary);
+}
+
+.card-glow {
+    position: absolute;
+    top: -2px;
+    left: -2px;
+    right: -2px;
+    bottom: -2px;
+    background: linear-gradient(45deg, var(--primary), var(--secondary), var(--primary));
+    border-radius: 22px;
+    z-index: -1;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.menu-card:hover .card-glow {
+    opacity: 1;
+    animation: glowRotate 3s linear infinite;
+}
+
+@keyframes glowRotate {
+    0% { filter: hue-rotate(0deg); }
+    100% { filter: hue-rotate(360deg); }
+}
+
+/* Live Stats */
+.live-stats {
+    display: flex;
+    justify-content: center;
+    gap: 50px;
+    margin-top: auto;
+    padding: 20px;
+}
+
+.stat-item {
+    text-align: center;
+}
+
+.stat-value {
+    font-family: 'Orbitron', sans-serif;
+    font-size: 2.5em;
+    font-weight: 700;
+    background: linear-gradient(45deg, var(--primary), var(--accent));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    margin-bottom: 5px;
+}
+
+.stat-label {
+    font-size: 0.9em;
+    color: var(--gray);
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+/* Screen Header */
+.screen-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 30px;
+}
+
+.back-btn {
+    background: rgba(255, 255, 255, 0.1);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: 10px;
+    padding: 12px 20px;
+    color: var(--light);
+    font-family: 'Rajdhani', sans-serif;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.back-btn:hover {
+    background: rgba(255, 255, 255, 0.2);
+    border-color: var(--primary);
+}
+
+.back-btn span {
+    font-size: 1.5em;
+}
+
+.header-title h2 {
+    font-family: 'Orbitron', sans-serif;
+    font-size: 2em;
+    text-align: center;
+    margin-bottom: 5px;
+}
+
+.header-title p {
+    color: var(--gray);
+    text-align: center;
+}
+
+/* Tracks Grid */
+.tracks-container {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+}
+
+.track-filters {
+    margin-bottom: 30px;
+}
+
+.filter-tags {
+    display: flex;
+    gap: 10px;
+    justify-content: center;
+}
+
+.filter-tag {
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 20px;
+    padding: 10px 20px;
+    color: var(--gray);
+    cursor: pointer;
+    transition: all 0.3s ease;
+    text-transform: uppercase;
+    font-size: 0.8em;
+    letter-spacing: 1px;
+}
+
+.filter-tag.active,
+.filter-tag:hover {
+    background: var(--primary);
+    color: var(--dark);
+    border-color: var(--primary);
+}
+
+.tracks-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+    gap: 20px;
+    overflow-y: auto;
+    padding: 10px;
+}
+
+.track-card {
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 15px;
+    padding: 25px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+}
+
+.track-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 3px;
+    background: linear-gradient(90deg, var(--primary), var(--secondary));
+}
+
+.track-card:hover {
+    transform: translateY(-5px);
+    border-color: var(--primary);
+    box-shadow: 0 10px 25px rgba(0, 240, 255, 0.1);
+}
+
+.track-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    margin-bottom: 15px;
+}
+
+.track-name {
+    font-family: 'Orbitron', sans-serif;
+    font-size: 1.3em;
+    margin-bottom: 5px;
+}
+
+.track-difficulty {
+    background: var(--warning);
+    color: var(--dark);
+    padding: 4px 12px;
+    border-radius: 12px;
+    font-size: 0.8em;
+    font-weight: 700;
+}
+
+.track-stats {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 15px;
+    margin: 20px 0;
+}
+
+.track-stat {
+    text-align: center;
+}
+
+.stat-number {
+    font-family: 'Orbitron', sans-serif;
+    font-size: 1.2em;
+    color: var(--primary);
+    margin-bottom: 2px;
+}
+
+.stat-label {
+    font-size: 0.7em;
+    color: var(--gray);
+    text-transform: uppercase;
+}
+
+.track-players {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding-top: 15px;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.players-online {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    color: var(--gray);
+    font-size: 0.9em;
+}
+
+.play-button {
+    background: linear-gradient(45deg, var(--primary), var(--accent));
+    border: none;
+    border-radius: 10px;
+    padding: 8px 20px;
+    color: var(--dark);
+    font-weight: 700;
+    cursor: pointer;
+    transition: transform 0.3s ease;
+}
+
+.play-button:hover {
+    transform: scale(1.05);
+}
+
+/* Custom Race */
+.custom-race-container {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+}
+
+.creation-steps {
+    display: flex;
+    justify-content: center;
+    gap: 40px;
+}
+
+.step {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    opacity: 0.5;
+    transition: all 0.3s ease;
+}
+
+.step.active {
+    opacity: 1;
+}
+
+.step-number {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.1);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 700;
+    border: 2px solid transparent;
+}
+
+.step.active .step-number {
+    background: var(--primary);
+    color: var(--dark);
+    border-color: var(--primary);
+}
+
+.step-info h4 {
+    font-family: 'Orbitron', sans-serif;
+    margin-bottom: 2px;
+}
+
+.step-info p {
+    font-size: 0.9em;
+    color: var(--gray);
+}
+
+.custom-config {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 30px;
+    flex: 1;
+}
+
+.config-section {
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: 15px;
+    padding: 25px;
+}
+
+.config-section h3 {
+    font-family: 'Orbitron', sans-serif;
+    margin-bottom: 20px;
+    color: var(--primary);
+    font-size: 1.1em;
+}
+
+.config-grid {
+    display: grid;
+    gap: 20px;
+}
+
+.config-input label {
+    display: block;
+    margin-bottom: 8px;
+    color: var(--gray);
+    font-size: 0.9em;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.modern-input,
+.modern-select {
+    width: 100%;
+    background: rgba(255, 255, 255, 0.1);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: 10px;
+    padding: 12px 15px;
+    color: var(--light);
+    font-family: 'Rajdhani', sans-serif;
+    transition: all 0.3s ease;
+}
+
+.modern-input:focus,
+.modern-select:focus {
+    outline: none;
+    border-color: var(--primary);
+    box-shadow: 0 0 0 2px var(--primary-glow);
+}
+
+.checkpoints-section {
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: 15px;
+    padding: 25px;
+}
+
+.checkpoints-list {
+    margin-top: 15px;
+    max-height: 200px;
+    overflow-y: auto;
+}
+
+.checkpoint-item {
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: 8px;
+    padding: 10px 15px;
+    margin-bottom: 8px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.creation-actions {
+    display: flex;
+    gap: 15px;
+    justify-content: center;
+}
+
+.btn-primary,
+.btn-secondary {
+    padding: 15px 30px;
+    border: none;
+    border-radius: 12px;
+    font-family: 'Rajdhani', sans-serif;
+    font-weight: 700;
+    font-size: 1em;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.btn-primary {
+    background: linear-gradient(45deg, var(--primary), var(--accent));
+    color: var(--dark);
+}
+
+.btn-primary:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 10px 20px rgba(0, 240, 255, 0.3);
+}
+
+.btn-secondary {
+    background: rgba(255, 255, 255, 0.1);
+    color: var(--light);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.btn-secondary:hover {
+    background: rgba(255, 255, 255, 0.2);
+    border-color: var(--primary);
+}
+
+/* Race HUD */
+.race-hud {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    background: rgba(10, 10, 20, 0.9);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 15px;
+    padding: 20px;
+    min-width: 280px;
+    backdrop-filter: blur(10px);
+    display: none;
+}
+
+.hud-main {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 20px;
+    margin-bottom: 20px;
+}
+
+.position-display,
+.checkpoint-display,
+.time-display {
+    text-align: center;
+}
+
+.position-label,
+.checkpoint-label,
+.time-label {
+    font-size: 0.8em;
+    color: var(--gray);
+    text-transform: uppercase;
+    margin-bottom: 5px;
+}
+
+.position-value {
+    font-family: 'Orbitron', sans-serif;
+    font-size: 2em;
+    font-weight: 700;
+    color: var(--primary);
+}
+
+.checkpoint-value {
+    font-family: 'Orbitron', sans-serif;
+    font-size: 1.3em;
+    margin-bottom: 8px;
+}
+
+.time-value {
+    font-family: 'Orbitron', sans-serif;
+    font-size: 1.3em;
+    color: var(--light);
+}
+
+.time-diff {
+    font-size: 0.8em;
+    color: var(--success);
+}
+
+.progress-bar {
+    width: 100%;
+    height: 4px;
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 2px;
+    overflow: hidden;
+}
+
+.progress-fill {
+    height: 100%;
+    background: linear-gradient(90deg, var(--primary), var(--accent));
+    border-radius: 2px;
+    transition: width 0.3s ease;
+}
+
+.hud-racers {
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    padding-top: 15px;
+}
+
+.racers-title {
+    font-size: 0.9em;
+    color: var(--gray);
+    margin-bottom: 10px;
+    text-transform: uppercase;
+}
+
+.racer-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 8px 0;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+    font-size: 0.9em;
+}
+
+.racer-position {
+    font-weight: 700;
+    color: var(--primary);
+}
+
+.racer-name {
+    flex: 1;
+    margin: 0 10px;
+}
+
+.racer-checkpoint {
+    color: var(--gray);
+    font-size: 0.8em;
+}
+
+/* Results Screen */
+.results-screen {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(5, 5, 8, 0.95);
+    display: none;
+    align-items: center;
+    justify-content: center;
+    backdrop-filter: blur(10px);
+}
+
+.results-container {
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 25px;
+    padding: 40px;
+    max-width: 600px;
+    width: 90%;
+    text-align: center;
+}
+
+.results-header {
+    margin-bottom: 40px;
+}
+
+.results-title {
+    font-family: 'Orbitron', sans-serif;
+    font-size: 2.5em;
+    margin-bottom: 10px;
+    background: linear-gradient(45deg, var(--primary), var(--accent));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.results-subtitle {
+    color: var(--gray);
+    font-size: 1.1em;
+}
+
+.podium {
+    display: flex;
+    justify-content: center;
+    align-items: end;
+    gap: 20px;
+    margin: 40px 0;
+}
+
+.podium-spot {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.podium-rank {
+    font-family: 'Orbitron', sans-serif;
+    font-size: 1.5em;
+    margin-bottom: 10px;
+    color: var(--gray);
+}
+
+.podium-platform {
+    width: 120px;
+    background: linear-gradient(45deg, var(--primary), var(--secondary));
+    border-radius: 10px 10px 0 0;
+}
+
+.first .podium-platform {
+    height: 100px;
+    background: linear-gradient(45deg, #ffd700, #ffed4e);
+}
+
+.second .podium-platform {
+    height: 80px;
+    background: linear-gradient(45deg, #c0c0c0, #e8e8e8);
+}
+
+.third .podium-platform {
+    height: 60px;
+    background: linear-gradient(45deg, #cd7f32, #e89c51);
+}
+
+.podium-info {
+    margin-top: 15px;
+}
+
+.podium-name {
+    font-family: 'Orbitron', sans-serif;
+    font-size: 1.2

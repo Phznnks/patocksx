@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Exibir JSON</title>
+</head>
+<body>
+    <div id="dados"></div>
+
+    <script>
+        // Função para buscar e exibir os dados
+        async function carregarDados() {
+            try {
+                const response = await fetch('dados.json'); // ou sua API
+                const dados = await response.json();
+                
+                // Chamar função para exibir os dados
+                exibirDados(dados);
+            } catch (error) {
+                console.error('Erro ao carregar dados:', error);
+            }
+        }
+
+        function exibirDados(dados) {
+            const container = document.getElementById('dados');
+            
+            // Exemplo com lista
+            let html = '<ul>';
+            dados.forEach(item => {
+                html += `
+                    <li>
+                        <strong>Nome:</strong> ${item.nome}<br>
+                        <strong>Email:</strong> ${item.email}<br>
+                        <strong>Idade:</strong> ${item.idade}
+                    </li>
+                `;
+            });
+            html += '</ul>';
+            
+            container.innerHTML = html;
+        }
+
+        // Carregar dados quando a página carregar
+        document.addEventListener('DOMContentLoaded', carregarDados);
+    </script>
+</body>
+</html>
