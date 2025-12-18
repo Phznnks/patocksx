@@ -7,6 +7,6 @@ ORGANIZACAO DA ESTRUTURA: {
     services: é onde as apis vao ficar.,
     routes: as rotas., 
     controllers: Vai ser o lugar onde vou trabalha a logica com a api que estara em services,
-
+    views
     app.js: sera o codigo geral/principal!.
 }

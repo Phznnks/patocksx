@@ -1,5 +1,4 @@
 const express = require('express')
-const mysql = require('mysql')
 const app = express()
 
 app.use(express.json())
@@ -9,22 +8,6 @@ app.use((req, res, next) => {
     res.header('Access-Control-Allow-Headers', 'Content-Type');
     next();
 });
-
-const conexao = mysql.createConnection({
-    host: 'localhost',
-    user: 'root',
-    password: '',
-    database: 'ex01'
-});
-
-conexao.connect(erro => {
-    if (erro) {
-        console.error('Erro ao Conectar ao Banco de Dados\n: ', erro)
-        return
-    }
-
-    console.log('Banco de Dados Conectado com Sucesso!.')
-})
 
 
 app.get('/', (req, res) => {
@@ -46,102 +29,12 @@ app.post('/criarproduto', (req, res) => {
 })
 
 
-
-const CadastraProduto = (dados) => {
-
-    const nome = dados.nome
-    const preco = dados.preco 
-    const foto = dados.foto
-    const tamanhos = dados.tamanhos
-    const cores =  dados.cores
-    const tipo_peca = dados.tipo_peca
-    const moda = dados.moda
-
-    conexao.query('INSERT INTO produtos (nome, preco, foto, tamanhos, cores, tipo_peca, moda) VALUES (?, ?, ?, ?, ?, ?, ?)', 
-        [nome, preco, foto, tamanhos, cores, tipo_peca, moda], 
-        function(erro, result){
-            if(erro){
-                console.error(erro)
-                return
-            }           
-        //console.log(result)
-    })
-
-}
-
-
-/* A promise eu coloquei para fazer a api de editarproduto, mas tive que pesquisa e ter ajuda ao chatgpt, 
-Consegui entendo um pouco sobre as promise e o try, mas ainda estou com muita duvida relaciodo a criacao da promise, 
-e na ora de sucesso({ vazio: true, message: 'Nenhum produto encontrado!.'}), nao entendi para que de fato esse json serve. 
-mas esta funcionando da forma que eu quero entao deixei mas futuramente tenho que estuda essa parte, aprofunda em promise kkkk.
- 
-*/
-const VerificarExistenciaDeProdutos = (req, res) => {
-    return new Promise((sucesso, rejeitada) => {
-        conexao.query('SELECT * FROM produtos', (error, result) => {
-            if (!error) {
-                //Verificar ser o banco de dados esta vazio
-                if (!result.length) {
-                    console.log('Nenhum Produto Ainda foi Castrado, no Momento!.')
-
-                    if (res) {
-                        res.json({ erro: '<h1> Nenhum Produto Ainda foi Castrado, no Momento!.</h1>' })
-                    }
-                    sucesso({ vazio: true, message: 'Nenhum produto encontrado!.'})
-                    return
-                }
-                if(!res) {
-                    sucesso(result)
-                }else {
-                    res.json({ dados: result })
-                    sucesso(result)
-                }
-                
-            } else {
-                console.error(error)
-                if (res) {
-                    res.status(500).json({ erro: 'Erro no banco de dados'})
-                }
-                rejeitada(error)
-            }
-
-        })
-    })    
-}
-
 app.put('/atualizarproduto', (req, res) => {
     const dados = req.body
     //console.log(dados)
 
     atualizarproduto(dados, res)
 })
-
-const atualizarproduto = (dados, res) => {
-    const id = dados.id
-    const nome = dados.nome
-    const preco = dados.preco 
-    const foto = dados.foto
-    const tamanhos = dados.tamanhos
-    const cores =  dados.cores
-    const tipo_peca = dados.tipo_peca
-    const moda = dados.moda
-
-    conexao.query('UPDATE produtos SET nome = ?, preco = ?, foto = ?, tamanhos = ?, cores = ?, tipo_peca = ?, moda = ? WHERE id = ?', 
-        [nome, preco, foto, tamanhos, cores, tipo_peca, moda, id], 
-        (error, result) => {
-            if (error){
-                console.error(`Ops, Nos pedimos descupas, mas Ocorreu um Erro: ${error}`)
-                return
-            }
-
-            res.json({
-                sucesso: true,
-                message: `O Produto com o Nome: ${nome} e o Id: ${id} Foi Atualizador Com Sucesso!.`,
-                messageErro: `Ops, Nos pedimos descupas, mas Ocorreu um Erro: ${error}`
-            })
-        }
-    )
-}
 
 app.delete('/deletarproduto/:id', async (req, res) => {
     const id = parseInt(req.params.id)
@@ -162,18 +55,6 @@ app.delete('/deletarproduto/:id', async (req, res) => {
         console.log('Parece que Algo deu errado!. \n Error: ', error)
     }
 })
-
-const DeleteProduto = (id) => { 
-    conexao.query('DELETE FROM produtos WHERE id = ? ', 
-        [id], (error, result) => {
-             if(error) {
-                console.error('Parece que algo deu errado!. ERRO: ', error)
-                return
-             }
-
-             console.log('Sucesso Produto Deletado!. O RESULT: ', result)
-        })
-}
 
 
 app.get('/editarproduto/:id', async (req, res) => {
