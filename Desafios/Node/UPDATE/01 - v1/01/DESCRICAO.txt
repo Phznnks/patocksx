@@ -1,0 +1,12 @@
+ATUALIZACOES 
+
+1 - Melhorar estrutura Geral do codigo, deixando o codigo mais facil entende, e deixando organizado cada html em um arquivo separado.
+2 - Adiciona um html/client para visualizar todos os produtos ao sql, igual o que a rota raiz('/') ja faz, mas com client 
+
+ORGANIZACAO DA ESTRUTURA: {
+    services: é onde as apis vao ficar.,
+    routes: as rotas., 
+    controllers: Vai ser o lugar onde vou trabalha a logica com a api que estara em services,
+
+    app.js: sera o codigo geral/principal!.
+}
